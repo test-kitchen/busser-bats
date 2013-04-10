@@ -21,7 +21,7 @@ require 'tmpdir'
 
 require 'busser/runner_plugin'
 
-# Bats runner plugin for Busser
+# A Busser runner plugin for Bats.
 #
 # @author Fletcher Nichol <fnichol@nichol.ca>
 #
