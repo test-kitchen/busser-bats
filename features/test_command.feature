@@ -9,23 +9,36 @@ Feature: Test command
     Given a suite directory named "bats"
 
   Scenario: A passing test suite
-    Given a file in suite "bats" named "<YOUR_FILE>" with:
+    Given a file in suite "bats" named "default.bats" with:
     """
-    TEST FILE CONTENT
+    @test "runs something" {
+      run echo "hello"
+      [ "$status" -eq 0 ]
+      [ "$output" == "hello" ]
+    }
 
-    A good test might be a simple passing statement
     """
     When I run `busser test bats`
-    Then I should verify some output for the bats plugin
+    Then the output should contain:
+    """
+    1..1
+    ok 1 runs something
+    """
     And the exit status should be 0
 
   Scenario: A failing test suite
-    Given a file in suite "bats" named "<YOUR_FILE>" with:
+    Given a file in suite "bats" named "default.bats" with:
     """
-    TEST FILE CONTENT
+    @test "fails something" {
+      run which uhoh-whatzit-called
+      [ "$status" -eq 0 ]
+    }
 
-    A good test might be a failing test case, raised exception, etc.
     """
     When I run `busser test bats`
-    Then I should verify some output for the bats plugin
+    Then the output should contain:
+    """
+    1..1
+    not ok 1 fails something
+    """
     And the exit status should not be 0

@@ -16,6 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+require 'pathname'
+require 'tmpdir'
+
 require 'busser/runner_plugin'
 
 # Bats runner plugin for Busser
@@ -24,7 +27,23 @@ require 'busser/runner_plugin'
 #
 class Busser::RunnerPlugin::Bats < Busser::RunnerPlugin::Base
 
+  postinstall do
+    tmp_root      = Pathname.new(Dir.mktmpdir("bats"))
+    tarball_url   = "https://github.com/sstephenson/bats/archive/master.tar.gz"
+    tarball_file  = tmp_root.join("bats.tar.gz")
+    extract_root  = tmp_root.join("bats")
+    dest_path     = vendor_path("bats")
+
+    empty_directory(extract_root)
+    get(tarball_url, tarball_file)
+    inside(extract_root) do
+      run!(%{gunzip -c "#{tarball_file}" | tar xf - --strip-components=1})
+      run!(%{./install.sh #{dest_path}})
+    end
+    remove_dir(tmp_root)
+  end
+
   def test
-    # your implementation here
+    run!("#{vendor_path('bats').join("bin/bats")} #{suite_path('bats')}")
   end
 end
