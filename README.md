@@ -1,6 +1,6 @@
 # <a name="title"></a> Busser::RunnerPlugin::Bats
 
-A Busser runner plugin for Bats
+A Busser runner plugin for [Bats][bats_site]
 
 ## <a name="installation"></a> Installation and Setup
 
@@ -34,8 +34,10 @@ Created and maintained by [Fletcher Nichol][author] (<fnichol@nichol.ca>)
 Apache 2.0 (see [LICENSE][license])
 
 
-[author]:           https://github.com/enter-github-user
-[issues]:           https://github.com/enter-github-user/busser-bats/issues
-[license]:          https://github.com/enter-github-user/busser-bats/blob/master/LICENSE
-[repo]:             https://github.com/enter-github-user/busser-bats
+[author]:           https://github.com/fnichol
+[issues]:           https://github.com/fnichol/busser-bats/issues
+[license]:          https://github.com/fnichol/busser-bats/blob/master/LICENSE
+[repo]:             https://github.com/fnichol/busser-bats
 [plugin_usage]:     http://docs.kitchen-ci.org/busser/plugin-usage
+
+[bats_site]:  https://github.com/sstephenson/bats

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['fnichol@nichol.ca']
   spec.description   = %q{Bats runner plugin for Busser}
   spec.summary       = spec.description
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/fnichol/busser-bats'
   spec.license       = 'Apache 2.0'
 
   spec.files         = `git ls-files`.split($/)
