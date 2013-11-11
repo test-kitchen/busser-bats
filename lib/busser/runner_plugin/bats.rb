@@ -29,7 +29,7 @@ class Busser::RunnerPlugin::Bats < Busser::RunnerPlugin::Base
 
   postinstall do
     tmp_root      = Pathname.new(Dir.mktmpdir("bats"))
-    tarball_url   = "https://github.com/sstephenson/bats/archive/master.tar.gz"
+    tarball_url   = "https://github.com/sstephenson/bats/archive/v0.3.1.tar.gz"
     tarball_file  = tmp_root.join("bats.tar.gz")
     extract_root  = tmp_root.join("bats")
     dest_path     = vendor_path("bats")
