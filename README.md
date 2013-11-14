@@ -1,7 +1,7 @@
 # <a name="title"></a> Busser::RunnerPlugin::Bats
 
-[![Build Status](https://travis-ci.org/fnichol/busser-bats.png?branch=master)](https://travis-ci.org/fnichol/busser-bats)
-[![Code Climate](https://codeclimate.com/github/fnichol/busser-bats.png)](https://codeclimate.com/github/fnichol/busser-bats)
+[![Build Status](https://travis-ci.org/test-kitchen/busser-bats.png?branch=master)](https://travis-ci.org/test-kitchen/busser-bats)
+[![Code Climate](https://codeclimate.com/github/test-kitchen/busser-bats.png)](https://codeclimate.com/github/test-kitchen/busser-bats)
 
 A Busser runner plugin for [Bats][bats_site]
 
