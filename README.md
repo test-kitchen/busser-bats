@@ -36,6 +36,8 @@ Created and maintained by [Fletcher Nichol][author] (<fnichol@nichol.ca>)
 
 Apache 2.0 (see [LICENSE][license])
 
+[Bats][bats_site] is released under an MIT-style license, copyright Sam Stephenson.
+
 
 [author]:           https://github.com/fnichol
 [issues]:           https://github.com/fnichol/busser-bats/issues

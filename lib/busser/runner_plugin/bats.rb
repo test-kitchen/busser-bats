@@ -17,7 +17,6 @@
 # limitations under the License.
 
 require 'pathname'
-require 'tmpdir'
 
 require 'busser/runner_plugin'
 
@@ -28,19 +27,9 @@ require 'busser/runner_plugin'
 class Busser::RunnerPlugin::Bats < Busser::RunnerPlugin::Base
 
   postinstall do
-    tmp_root      = Pathname.new(Dir.mktmpdir("bats"))
-    tarball_url   = "https://github.com/sstephenson/bats/archive/v0.3.1.tar.gz"
-    tarball_file  = tmp_root.join("bats.tar.gz")
-    extract_root  = tmp_root.join("bats")
-    dest_path     = vendor_path("bats")
-
-    empty_directory(extract_root)
-    get(tarball_url, tarball_file)
-    inside(extract_root) do
-      run!(%{gunzip -c "#{tarball_file}" | tar xf - --strip-components=1})
-      run!(%{./install.sh #{dest_path}})
+    inside(Pathname.new(__FILE__).dirname.join("../../../vendor/bats")) do
+      run!(%{./install.sh #{vendor_path("bats")}})
     end
-    remove_dir(tmp_root)
   end
 
   def test
