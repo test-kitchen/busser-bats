@@ -28,6 +28,7 @@ class Busser::RunnerPlugin::Bats < Busser::RunnerPlugin::Base
 
   postinstall do
     inside(Pathname.new(__FILE__).dirname.join("../../../vendor/bats")) do
+      FileUtils.ln_sf("../libexec/bats", "bin/bats")
       run!(%{./install.sh #{vendor_path("bats")}})
     end
   end
