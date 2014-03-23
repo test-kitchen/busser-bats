@@ -2,7 +2,6 @@ require "bundler/gem_tasks"
 require 'cucumber/rake/task'
 require 'cane/rake_task'
 require 'open-uri'
-require 'tailor/rake_task'
 
 namespace :bats do
 
@@ -53,8 +52,6 @@ Cane::RakeTask.new do |cane|
   cane.canefile = './.cane'
 end
 
-Tailor::RakeTask.new
-
 desc "Display LOC stats"
 task :stats do
   puts "\n## Production Code Stats"
@@ -64,6 +61,6 @@ task :stats do
 end
 
 desc "Run all quality tasks"
-task :quality => [:cane, :tailor, :stats]
+task :quality => [:cane, :stats]
 
 task :default => [:test, :quality]
