@@ -9,7 +9,7 @@ A Busser runner plugin for [Bats][bats_site]
 
 ## <a name="installation"></a> Installation and Setup
 
-Please read the Busser [plugin usage][plugin_usage] page for more details.
+Until proper reference documentation is complete, the [Writing a Test](http://kitchen.ci/docs/getting-started/writing-test) section of the Test Kitchen's [Getting Started Guide](http://kitchen.ci/docs/getting-started/) gives a working example of creating a bats test.
 
 ## <a name="usage"></a> Usage
 
