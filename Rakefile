@@ -5,7 +5,7 @@ require "open-uri"
 
 namespace :bats do
 
-  version = ENV.fetch("BATS_VERSION", "v0.3.1")
+  version = ENV.fetch("BATS_VERSION", "v0.4.0")
   url = "https://github.com/sstephenson/bats/archive/#{version}.tar.gz"
   tarball = "tmp/bats-#{version}.tar.gz"
   vendor = "vendor/bats"
