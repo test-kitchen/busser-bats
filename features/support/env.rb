@@ -1,8 +1,10 @@
-require 'aruba/cucumber'
-require 'busser/cucumber'
+# -*- encoding: utf-8 -*-
+
+require "aruba/cucumber"
+require "busser/cucumber"
 
 if ENV["COVERAGE"]
-  require 'simplecov'
+  require "simplecov"
   SimpleCov.command_name "features"
 end
 

@@ -1,29 +1,35 @@
 # coding: utf-8
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'busser/bats/version'
+require "busser/bats/version"
+require "English"
 
-Gem::Specification.new do |spec|
-  spec.name          = 'busser-bats'
-  spec.version       = Busser::Bats::VERSION
-  spec.authors       = ['Fletcher Nichol']
-  spec.email         = ['fnichol@nichol.ca']
-  spec.description   = %q{A Busser runner plugin for Bats}
-  spec.summary       = spec.description
-  spec.homepage      = 'https://github.com/test-kitchen/busser-bats'
-  spec.license       = 'Apache 2.0'
+Gem::Specification.new do |gem|
+  gem.name          = "busser-bats"
+  gem.version       = Busser::Bats::VERSION
+  gem.authors       = ["Fletcher Nichol"]
+  gem.email         = ["fnichol@nichol.ca"]
+  gem.description   = "A Busser runner plugin for Bats"
+  gem.summary       = gem.description
+  gem.homepage      = "https://github.com/test-kitchen/busser-bats"
+  gem.license       = "Apache 2.0"
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = []
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
-  spec.require_paths = ['lib']
+  gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
+  gem.executables   = []
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
+  gem.require_paths = ["lib"]
 
-  spec.add_dependency 'busser'
+  gem.add_dependency "busser"
 
-  spec.add_development_dependency 'aruba'
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'cane'
-  spec.add_development_dependency 'countloc'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'simplecov'
+  gem.add_development_dependency "aruba"
+  gem.add_development_dependency "bundler", "~> 1.3"
+  gem.add_development_dependency "countloc"
+  gem.add_development_dependency "rake"
+  gem.add_development_dependency "simplecov"
+
+  # style and complexity libraries are tightly version pinned as newer releases
+  # may introduce new and undesireable style choices which would be immediately
+  # enforced in CI
+  gem.add_development_dependency "finstyle",  "1.2.0"
+  gem.add_development_dependency "cane",      "2.6.2"
 end
