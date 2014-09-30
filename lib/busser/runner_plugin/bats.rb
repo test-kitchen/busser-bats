@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require 'pathname'
+require "pathname"
 
-require 'busser/runner_plugin'
+require "busser/runner_plugin"
 
 # A Busser runner plugin for Bats.
 #
@@ -34,6 +34,6 @@ class Busser::RunnerPlugin::Bats < Busser::RunnerPlugin::Base
   end
 
   def test
-    run!("#{vendor_path('bats').join("bin/bats")} #{suite_path('bats')}")
+    run!("#{vendor_path("bats").join("bin/bats")} #{suite_path("bats")}")
   end
 end
