@@ -1,3 +1,15 @@
+## 0.3.0 / 2014-10-14
+
+### New features
+
+* Upgrade vendored bats version to 0.4.0. ([@fnichol][])
+
+### Improvments
+
+* Update testing dependencies, upgrade to RSpec 3.x, freshen TravisCI build matrix, add style and complexity support. ([@fnichol][])
+* Allow Aruba tests to wait 20 seconds (vs. 10). ([@fnichol][])
+
+
 ## 0.2.0 / 2014-03-23
 
 ### Improvements

@@ -21,6 +21,6 @@ module Busser
   module Bats
 
     # Version string for the Bats Busser runner plugin
-    VERSION = "0.2.1.dev"
+    VERSION = "0.3.0"
   end
 end
