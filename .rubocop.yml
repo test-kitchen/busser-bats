@@ -1,3 +1,0 @@
-Style/ClassAndModuleChildren:
-  Exclude:
-    - lib/busser/runner_plugin/bats.rb

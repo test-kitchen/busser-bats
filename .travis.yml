@@ -1,34 +1,17 @@
 language: ruby
+cache: bundler
+dist: xenial
 
-rvm:
-  - 2.1
-  - 2.0.0
-  - 1.9.3
-  - ruby-head
-
-env:
-  - RUBYGEMS_VERSION=
-  - RUBYGEMS_VERSION=2.2.2
-  - RUBYGEMS_VERSION=2.1.11
-  - RUBYGEMS_VERSION=2.0.14
-  - RUBYGEMS_VERSION=1.8.29
-
-bundler_args: --without guard
-
-before_install:
-  - if [ -n "$RUBYGEMS_VERSION" ]; then gem update --system $RUBYGEMS_VERSION; fi
-  - gem --version
+branches:
+  only:
+  - master
 
 matrix:
-  exclude:
-    - rvm: 2.1
-      env: RUBYGEMS_VERSION=1.8.29
-    - rvm: 2.0.0
-      env: RUBYGEMS_VERSION=1.8.29
+  include:
+    - rvm: 2.4.9
+    - rvm: 2.5.7
+    - rvm: 2.6.5
+    - rvm: 2.7.0
     - rvm: ruby-head
-      env: RUBYGEMS_VERSION=1.8.29
   allow_failures:
-    - rvm: ruby-head
-
-notifications:
-  irc: "chat.freenode.net#kitchenci"
+  - rvm: ruby-head

@@ -54,10 +54,14 @@ RuboCop::RakeTask.new(:style) do |task|
   task.options << "--display-cop-names"
 end
 
-require "cane/rake_task"
-desc "Run cane to check quality metrics"
-Cane::RakeTask.new do |cane|
-  cane.canefile = "./.cane"
+require "chefstyle"
+require "rspec/core/rake_task"
+
+desc "Run RuboCop on the lib directory"
+RuboCop::RakeTask.new(:rubocop) do |task|
+  task.patterns = ["lib/**/*.rb"]
+  # don't abort rake on failure
+  task.fail_on_error = false
 end
 
 desc "Display LOC stats"
@@ -69,6 +73,6 @@ task :stats do
 end
 
 desc "Run all quality tasks"
-task :quality => [:cane, :style, :stats]
+task :quality => [:rubocop, :style, :stats]
 
 task :default => [:test, :quality]
