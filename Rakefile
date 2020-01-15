@@ -11,7 +11,7 @@ namespace :bats do
   vendor = "vendor/bats"
 
   desc "Vendors bats #{version} source code into gem codebase"
-  task :vendor => "#{vendor}/VERSION.txt"
+  task vendor: "#{vendor}/VERSION.txt"
 
   directory File.dirname(tarball)
   directory vendor
@@ -46,19 +46,13 @@ Cucumber::Rake::Task.new(:features) do |t|
 end
 
 desc "Run all test suites"
-task :test => [:features]
-
-require "finstyle"
-require "rubocop/rake_task"
-RuboCop::RakeTask.new(:style) do |task|
-  task.options << "--display-cop-names"
-end
+task test: [:features]
 
 require "chefstyle"
-require "rspec/core/rake_task"
+require "rubocop/rake_task"
 
-desc "Run RuboCop on the lib directory"
-RuboCop::RakeTask.new(:rubocop) do |task|
+desc "Run Chefstyle on the lib directory"
+RuboCop::RakeTask.new(:style) do |task|
   task.patterns = ["lib/**/*.rb"]
   # don't abort rake on failure
   task.fail_on_error = false
@@ -73,6 +67,6 @@ task :stats do
 end
 
 desc "Run all quality tasks"
-task :quality => [:rubocop, :style, :stats]
+task quality: %i{rubocop style stats}
 
-task :default => [:test, :quality]
+task default: %i{test quality}
