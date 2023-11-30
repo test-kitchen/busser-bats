@@ -17,9 +17,6 @@ end
 group :development do
   gem "countloc"
   gem "simplecov"
-
-#   gem "finstyle",  "1.2.0"
-  gem "cane",      "2.6.2"
 end
 
 group :chefstyle do
