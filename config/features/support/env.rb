@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 require "aruba/cucumber"
 require "busser/cucumber"
 

@@ -1,0 +1,1 @@
+default: --publish-quiet --format pretty --format html --out reports.html
