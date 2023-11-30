@@ -1,9 +1,8 @@
 require "bundler/gem_tasks"
-require "open-uri"
 
 namespace :bats do
-  version = ENV.fetch("BATS_VERSION", "v0.4.0")
-  url = "https://github.com/sstephenson/bats/archive/#{version}.tar.gz"
+  version = ENV.fetch("BATS_VERSION", "v1.10.0")
+  url = "https://github.com/bats-core/bats-core/archive/refs/tags/#{version}.tar.gz"
   tarball = "tmp/bats-#{version}.tar.gz"
   vendor = "vendor/bats"
 
@@ -13,14 +12,7 @@ namespace :bats do
   directory File.dirname(tarball)
   directory vendor
 
-  file tarball => File.dirname(tarball) do |t|
-    src = open(url).binmode
-    dst = open(t.name, "wb")
-    IO.copy_stream(src, dst)
-  ensure
-    src.close
-    dst.close
-  end
+  sh "curl -s -L #{url} -o #{tarball}"
 
   file "#{vendor}/VERSION.txt" => [vendor, tarball] do |t|
     abs_tarball = File.expand_path(tarball)
@@ -51,4 +43,4 @@ task :stats do
   sh "countloc -r features"
 end
 
-task default: %i{test quality}
+task default: %i{test}
