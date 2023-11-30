@@ -1,5 +1,19 @@
 # busser-bats Changelog
 
+## [0.4.0](https://github.com/test-kitchen/busser-bats/compare/v0.3.0...v0.4.0) (2023-11-30)
+
+
+### Features
+
+* Add publish workflow, lint workflow ([#24](https://github.com/test-kitchen/busser-bats/issues/24)) ([1a8adb3](https://github.com/test-kitchen/busser-bats/commit/1a8adb3f146b10173aec2a779b0a3fb43745be11))
+
+## [0.3.0](https://github.com/test-kitchen/busser-bats/compare/v0.2.0...v0.3.0) (2023-11-30)
+
+
+### Features
+
+* Add publish workflow, lint workflow ([#24](https://github.com/test-kitchen/busser-bats/issues/24)) ([1a8adb3](https://github.com/test-kitchen/busser-bats/commit/1a8adb3f146b10173aec2a779b0a3fb43745be11))
+
 ## 0.3.0 / 2014-10-14
 
 ### New features
