@@ -1,4 +1,4 @@
-# <a name="title"></a> Busser::RunnerPlugin::Bats
+# Busser::RunnerPlugin::Bats
 
 [![Gem Version](https://badge.fury.io/rb/busser-bats.png)](http://badge.fury.io/rb/busser-bats)
 [![Build Status](https://travis-ci.org/test-kitchen/busser-bats.png?branch=master)](https://travis-ci.org/test-kitchen/busser-bats)
@@ -10,15 +10,15 @@ A Busser runner plugin for [Bats][bats_site]
 
 This software project is no longer under active development as it has no active maintainers. The software may continue to work for some or all use cases, but issues filed in GitHub will most likely not be triaged. If a new maintainer is interested in working on this project please come chat with us in #test-kitchen on Chef Community Slack.
 
-## <a name="installation"></a> Installation and Setup
+## Installation and Setup
 
 Until proper reference documentation is complete, the [Writing a Test](http://kitchen.ci/docs/getting-started/writing-test) section of the Test Kitchen's [Getting Started Guide](http://kitchen.ci/docs/getting-started/) gives a working example of creating a bats test.
 
-## <a name="usage"></a> Usage
+## Usage
 
 **TODO:** Write documentation explaining the structure/format of testing files.
 
-## <a name="development"></a> Development
+## Development
 
 * Source hosted at [GitHub][repo]
 * Report issues/questions/feature requests on [GitHub Issues][issues]
@@ -33,11 +33,11 @@ example:
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-## <a name="authors"></a> Authors
+## Authors
 
 Created and maintained by [Fletcher Nichol][author] (<fnichol@nichol.ca>)
 
-## <a name="license"></a> License
+## License
 
 Apache 2.0 (see [LICENSE][license])
 
@@ -48,6 +48,5 @@ Apache 2.0 (see [LICENSE][license])
 [issues]:           https://github.com/fnichol/busser-bats/issues
 [license]:          https://github.com/fnichol/busser-bats/blob/master/LICENSE
 [repo]:             https://github.com/fnichol/busser-bats
-[plugin_usage]:     http://docs.kitchen-ci.org/busser/plugin-usage
 
 [bats_site]:  https://github.com/sstephenson/bats

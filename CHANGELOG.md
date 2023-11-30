@@ -1,3 +1,5 @@
+# busser-bats Changelog
+
 ## 0.3.0 / 2014-10-14
 
 ### New features

@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 #
 # Author:: Fletcher Nichol (<fnichol@nichol.ca>)
 #
@@ -17,10 +16,7 @@
 # limitations under the License.
 
 module Busser
-
   module Bats
-
-    # Version string for the Bats Busser runner plugin
-    VERSION = "0.3.1.dev"
+    VERSION = "0.3.1.dev".freeze
   end
 end
