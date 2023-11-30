@@ -19,7 +19,7 @@ group :development do
   gem "simplecov"
 
 #   gem "finstyle",  "1.2.0"
-  gem "cane",      "2.6.2"
+  gem "cane",      "3.0.0"
 end
 
 group :chefstyle do
