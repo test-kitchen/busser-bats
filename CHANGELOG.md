@@ -1,5 +1,13 @@
 # busser-bats Changelog
 
+## [0.5.0](https://github.com/test-kitchen/busser-bats/compare/v0.4.0...v0.5.0) (2023-11-30)
+
+
+### Features
+
+* Bump Ruby version to 3.1 ([#30](https://github.com/test-kitchen/busser-bats/issues/30)) ([948f626](https://github.com/test-kitchen/busser-bats/commit/948f6265ca4a5aa187bf7e76f93dd275b1568b0d))
+* Remove cane ([#32](https://github.com/test-kitchen/busser-bats/issues/32)) ([1bf1bda](https://github.com/test-kitchen/busser-bats/commit/1bf1bda3235445455cec19ee47af3cf3dda667b0))
+
 ## [0.4.0](https://github.com/test-kitchen/busser-bats/compare/v0.3.0...v0.4.0) (2023-11-30)
 
 
