@@ -1,11 +1,10 @@
-# -*- encoding: utf-8 -*-
 ignore %r{^\.gem/}
 
 def rubocop_opts
-  { :all_on_start => false, :keep_failed => false, :cli => "-r finstyle -D" }
+  { all_on_start: false, keep_failed: false, cli: "-r finstyle -D" }
 end
 
-group :red_green_refactor, :halt_on_fail => true do
+group :red_green_refactor, halt_on_fail: true do
   guard :cucumber do
     watch(%r{^features/.+\.feature$})
     watch(%r{^features/support/.+$}) { "features" }
@@ -15,12 +14,7 @@ group :red_green_refactor, :halt_on_fail => true do
   end
 
   guard :rubocop, rubocop_opts do
-    watch(%r{.+\.rb$})
+    watch(/.+\.rb$/)
     watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
-  end
-
-  guard :cane do
-    watch(%r{.*\.rb})
-    watch(".cane")
   end
 end
