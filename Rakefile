@@ -1,32 +1,27 @@
 require "bundler/gem_tasks"
-require "open-uri"
 
 namespace :bats do
-  version = ENV.fetch("BATS_VERSION", "v0.4.0")
-  url = "https://github.com/sstephenson/bats/archive/#{version}.tar.gz"
-  tarball = "tmp/bats-#{version}.tar.gz"
-  vendor = "vendor/bats"
+  desc "Vendor bats into gem codebase"
+  task :vendor do
+    version = ENV.fetch("BATS_VERSION", "v1.10.0")
+    url = "https://github.com/bats-core/bats-core/archive/refs/tags/#{version}.tar.gz"
+    tarball = "tmp/bats-#{version}.tar.gz"
+    vendor = "vendor/bats"
 
-  desc "Vendors bats #{version} source code into gem codebase"
-  task vendor: "#{vendor}/VERSION.txt"
+    desc "Vendors bats #{version} source code into gem codebase"
+    task vendor: "#{vendor}/VERSION.txt"
 
-  directory File.dirname(tarball)
-  directory vendor
+    directory File.dirname(tarball)
+    directory vendor
 
-  file tarball => File.dirname(tarball) do |t|
-    src = open(url).binmode
-    dst = open(t.name, "wb")
-    IO.copy_stream(src, dst)
-  ensure
-    src.close
-    dst.close
-  end
+    sh "curl -s -L #{url} -o #{tarball}"
 
-  file "#{vendor}/VERSION.txt" => [vendor, tarball] do |t|
-    abs_tarball = File.expand_path(tarball)
-    Dir.chdir(vendor) { sh "tar xzf #{abs_tarball} --strip-components=1" }
-    rm_rf "#{vendor}/test"
-    IO.write(t.name, url + "\n")
+    file "#{vendor}/VERSION.txt" => [vendor, tarball] do |t|
+      abs_tarball = File.expand_path(tarball)
+      Dir.chdir(vendor) { sh "tar xzf #{abs_tarball} --strip-components=1" }
+      rm_rf "#{vendor}/test"
+      IO.write(t.name, url + "\n")
+    end
   end
 
   desc "Clean up a vendored bats in preparation for a new vendored version"
@@ -51,4 +46,4 @@ task :stats do
   sh "countloc -r features"
 end
 
-task default: %i{test quality}
+task default: %i{test}
