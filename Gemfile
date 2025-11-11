@@ -8,8 +8,8 @@ group :guard do
 end
 
 group :test do
-  gem "rake", ">= 11.0"
-  gem "rspec", "~> 3.2"
+  gem "rake"
+  gem "rspec"
   gem "aruba"
 end
 
@@ -19,5 +19,5 @@ group :development do
 end
 
 group :chefstyle do
-  gem "chefstyle", "2.2.3"
+  gem "cookstyle"
 end
