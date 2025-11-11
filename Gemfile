@@ -8,6 +8,6 @@ group :test do
   gem "aruba"
 end
 
-group :chefstyle do
-  gem "cookstyle"
+group :cookstyle do
+  gem "cookstyle", "~> 8.4"
 end
