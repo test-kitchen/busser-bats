@@ -4,8 +4,6 @@ gemspec
 
 group :guard do
   gem "guard-cucumber"
-  gem "guard-cane"
-  gem "guard-rubocop"
 end
 
 group :test do
@@ -17,10 +15,6 @@ end
 group :development do
   gem "countloc"
   gem "simplecov"
-end
-
-group :chefstyle do
-  gem "chefstyle", "2.2.3"
 end
 
 group :cookstyle do
