@@ -4,7 +4,7 @@ require "busser/bats/version"
 require "English"
 
 Gem::Specification.new do |gem|
-  gem.name          = "busser-bats"
+  gem.name = "busser-bats"
   gem.required_ruby_version = ">= 3.1"
   gem.version       = Busser::Bats::VERSION
   gem.authors       = ["Fletcher Nichol"]
@@ -16,7 +16,6 @@ Gem::Specification.new do |gem|
 
   gem.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
   gem.executables   = []
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
 
   gem.add_dependency "busser"
