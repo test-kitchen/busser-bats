@@ -9,7 +9,6 @@ group :test do
 end
 
 group :development do
-  gem "countloc"
   gem "simplecov"
 end
 

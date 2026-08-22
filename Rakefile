@@ -43,12 +43,4 @@ end
 desc "Run all test suites"
 task test: [:features]
 
-desc "Display LOC stats"
-task :stats do
-  puts "\n## Production Code Stats"
-  sh "countloc -r lib"
-  puts "\n## Test Code Stats"
-  sh "countloc -r features"
-end
-
-task default: %i{test quality}
+task default: %i{test}
