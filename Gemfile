@@ -2,10 +2,6 @@ source "https://rubygems.org"
 
 gemspec
 
-group :guard do
-  gem "guard-cucumber"
-end
-
 group :test do
   gem "rake", ">= 11.0"
   gem "rspec", "~> 3.2"
