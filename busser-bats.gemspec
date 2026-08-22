@@ -5,6 +5,7 @@ require "English"
 
 Gem::Specification.new do |gem|
   gem.name          = "busser-bats"
+  gem.required_ruby_version = ">= 3.1"
   gem.version       = Busser::Bats::VERSION
   gem.authors       = ["Fletcher Nichol"]
   gem.email         = ["fnichol@nichol.ca"]
