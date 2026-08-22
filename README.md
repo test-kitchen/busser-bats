@@ -1,8 +1,7 @@
 # Busser::RunnerPlugin::Bats
 
-[![Gem Version](https://badge.fury.io/rb/busser-bats.png)](http://badge.fury.io/rb/busser-bats)
-[![Build Status](https://travis-ci.org/test-kitchen/busser-bats.png?branch=master)](https://travis-ci.org/test-kitchen/busser-bats)
-[![Code Climate](https://codeclimate.com/github/test-kitchen/busser-bats.png)](https://codeclimate.com/github/test-kitchen/busser-bats)
+[![Gem Version](https://badge.fury.io/rb/busser-bats.svg)](http://badge.fury.io/rb/busser-bats)
+[![Code Climate](https://codeclimate.com/github/test-kitchen/busser-bats.svg)](https://codeclimate.com/github/test-kitchen/busser-bats)
 
 A Busser runner plugin for [Bats][bats_site]
 
