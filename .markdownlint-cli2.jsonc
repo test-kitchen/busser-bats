@@ -1,0 +1,7 @@
+{
+  "fix": false,
+  "globs": ["**/*.md", "!vendor"],
+//   "ignores": ["ignore*.md"],
+  "noProgress": false,
+  "showFound": true
+}
