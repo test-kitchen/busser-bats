@@ -1,11 +1,16 @@
 require "bundler/gem_tasks"
-require "open-uri"
-
 namespace :bats do
-  version = ENV.fetch("BATS_VERSION", "v0.4.0")
-  url = "https://github.com/sstephenson/bats/archive/#{version}.tar.gz"
+  # bats moved. sstephenson/bats was archived in 2016 at v0.4.0; bats-core is
+  # the maintained fork and where every release since has come from.
+  version = ENV.fetch("BATS_VERSION", "v1.14.0")
+  url = "https://github.com/bats-core/bats-core/archive/refs/tags/#{version}.tar.gz"
   tarball = "tmp/bats-#{version}.tar.gz"
   vendor = "vendor/bats"
+
+  # install.sh needs bin, libexec, lib and the two man pages. Everything else in
+  # the tarball -- the test suite, the docs site, Docker and CI scaffolding --
+  # is weight in a gem that gets copied onto every machine under test.
+  keep = %w{bin libexec lib man install.sh uninstall.sh LICENSE.md README.md}
 
   desc "Vendors bats #{version} source code into gem codebase"
   task vendor: "#{vendor}/VERSION.txt"
@@ -14,19 +19,16 @@ namespace :bats do
   directory vendor
 
   file tarball => File.dirname(tarball) do |t|
-    src = open(url).binmode
-    dst = open(t.name, "wb")
-    IO.copy_stream(src, dst)
-  ensure
-    src.close
-    dst.close
+    sh "curl", "--fail", "--silent", "--location", url, "--output", t.name
   end
 
   file "#{vendor}/VERSION.txt" => [vendor, tarball] do |t|
     abs_tarball = File.expand_path(tarball)
-    Dir.chdir(vendor) { sh "tar xzf #{abs_tarball} --strip-components=1" }
-    rm_rf "#{vendor}/test"
-    IO.write(t.name, url + "\n")
+    Dir.chdir(vendor) do
+      sh "tar", "xzf", abs_tarball, "--strip-components=1"
+      (Dir.glob("*", File::FNM_DOTMATCH) - [".", "..", *keep]).each { |f| rm_rf(f) }
+    end
+    File.write(t.name, "#{url}\n")
   end
 
   desc "Clean up a vendored bats in preparation for a new vendored version"
