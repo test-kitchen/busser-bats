@@ -1,5 +1,16 @@
 # busser-bats Changelog
 
+## [0.7.0](https://github.com/test-kitchen/busser-bats/compare/v0.6.0...v0.7.0) (2026-08-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* the vendored bats goes from 0.4.0 to 1.14.0. Suites relying on bats 0.4 behaviour may need updating; see the bats-core changelog.
+
+### Features
+
+* vendor bats-core instead of the archived sstephenson/bats ([#59](https://github.com/test-kitchen/busser-bats/issues/59)) ([377240c](https://github.com/test-kitchen/busser-bats/commit/377240cbf04dee7bdec158fc306bbc5a7e7fe509))
+
 ## [0.6.0](https://github.com/test-kitchen/busser-bats/compare/v0.5.0...v0.6.0) (2026-08-28)
 
 
