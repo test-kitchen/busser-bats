@@ -16,6 +16,7 @@
 # limitations under the License.
 
 require "pathname" unless defined?(Pathname)
+require "shellwords" unless defined?(Shellwords)
 
 require "busser/runner_plugin"
 
@@ -32,7 +33,23 @@ class Busser::RunnerPlugin::Bats < Busser::RunnerPlugin::Base
     end
   end
 
+  # Builds the bats invocation.
+  #
+  # Both paths are quoted: the Busser root is user supplied through
+  # BUSSER_ROOT, and an unquoted path containing a space would be split into
+  # two arguments by the shell and silently run the wrong thing.
+  #
+  # @param bats_bin [String, Pathname] the vendored bats executable
+  # @param suite [String, Pathname] the suite directory holding the .bats files
+  # @return [String] the command to run
+  def self.command_for(bats_bin, suite)
+    %{#{Shellwords.escape(bats_bin.to_s)} #{Shellwords.escape(suite.to_s)}}
+  end
+
+  # Runs the suite's .bats files through the vendored bats.
+  #
+  # @return [void]
   def test
-    run!("#{vendor_path("bats").join("bin/bats")} #{suite_path("bats")}")
+    run!(self.class.command_for(vendor_path("bats").join("bin/bats"), suite_path("bats")))
   end
 end
