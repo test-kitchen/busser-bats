@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "08783322568b4fc064856c2d374744e8ca588f32",
+  "packages": {
+    ".": {
+      "package-name": "busser-bats",
+      "changelog-path": "CHANGELOG.md",
+      "release-type": "ruby",
+      "include-component-in-tag": false,
+      "version-file": "lib/busser/bats/version.rb"
+    }
+  }
+}
