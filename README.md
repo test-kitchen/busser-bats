@@ -1,50 +1,76 @@
-# Busser::RunnerPlugin::Bats
+# busser-bats
 
-[![Gem Version](https://badge.fury.io/rb/busser-bats.svg)](http://badge.fury.io/rb/busser-bats)
+[![Gem Version](https://badge.fury.io/rb/busser-bats.svg)](https://badge.fury.io/rb/busser-bats)
 
-A Busser runner plugin for [Bats][bats_site]
+A [Busser](https://github.com/test-kitchen/busser) runner plugin that runs
+[Bats](https://github.com/bats-core/bats-core) test files.
+
+Bats is a TAP-producing test harness for bash. This plugin vendors a copy of it,
+installs that copy onto the machine under test during postinstall, and then runs
+it against the suite's `bats` directory — so the machine under test needs
+nothing beyond bash.
 
 ## Status
 
-This software project is no longer under active development as it has no active maintainers. The software may continue to work for some or all use cases, but issues filed in GitHub will most likely not be triaged. If a new maintainer is interested in working on this project please come chat with us in #test-kitchen on Chef Community Slack.
+This software project is no longer under active development as it has no active
+maintainers. The software may continue to work for some or all use cases, but
+issues filed in GitHub will most likely not be triaged. If a new maintainer is
+interested in working on this project please come chat with us in #test-kitchen
+on Chef Community Slack.
 
-## Installation and Setup
+## Requirements
 
-Until proper reference documentation is complete, the [Writing a Test](https://kitchen.ci/docs/writing-test) section of the Test Kitchen's [Getting Started Guide](https://kitchen.ci/docs/) gives a working example of creating a bats test.
+Ruby 3.2 or newer, and busser 0.9.0 or newer.
+
+## Installation
+
+Busser installs the plugin for you when Test Kitchen runs the suite, so there is
+usually nothing to do. To install it by hand:
+
+```bash
+busser plugin install busser-bats
+```
 
 ## Usage
 
-**TODO:** Write documentation explaining the structure/format of testing files.
+Put your `.bats` files in the `bats` directory of a suite:
 
-## Development
+```text
+test
+`-- integration
+    `-- default          # suite name
+        `-- bats
+            `-- default.bats
+```
 
-* Source hosted at [GitHub][repo]
-* Report issues/questions/feature requests on [GitHub Issues][issues]
+The whole directory is handed to `bats`, which picks up every `*.bats` file in
+it. A test is a `@test` block, and it passes when every command in it succeeds:
 
-Pull requests are very welcome! Make sure your patches are well tested.
-Ideally create a topic branch for every separate change you make. For
-example:
+```bash
+@test "foobar.txt was created" {
+  run cat /usr/local/foobar.txt
+  [ "$status" -eq 0 ]
+  [ "$output" = "hello" ]
+}
+```
 
-1. Fork the repo
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Added some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+See the [Bats documentation](https://bats-core.readthedocs.io) for the full
+assertion and helper vocabulary.
 
-## Authors
+Test Kitchen picks the plugin up from the suite directory name — no verifier
+configuration is needed beyond the default busser verifier.
 
-Created and maintained by [Fletcher Nichol][author] (<fnichol@nichol.ca>)
+## Contributing
+
+Bug reports and pull requests are welcome. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for how to set up the project, run the test
+suite, and format your commits.
 
 ## License
 
-Apache 2.0 (see [LICENSE][license])
+Apache License 2.0. See [LICENSE](LICENSE).
 
-[Bats][bats_site] is released under an MIT-style license, copyright Sam Stephenson.
+The vendored copy of Bats is released under an MIT-style license, copyright Sam
+Stephenson and the bats-core contributors.
 
-
-[author]:           https://github.com/fnichol
-[issues]:           https://github.com/fnichol/busser-bats/issues
-[license]:          https://github.com/fnichol/busser-bats/blob/master/LICENSE
-[repo]:             https://github.com/fnichol/busser-bats
-
-[bats_site]:  https://github.com/sstephenson/bats
+Originally created by [Fletcher Nichol](https://github.com/fnichol).
