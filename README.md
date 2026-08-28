@@ -60,6 +60,48 @@ assertion and helper vocabulary.
 Test Kitchen picks the plugin up from the suite directory name — no verifier
 configuration is needed beyond the default busser verifier.
 
+## Using it with Test Kitchen
+
+This is how most people run it, and it needs no Busser commands of your own.
+Select the verifier in `kitchen.yml`:
+
+```yaml
+verifier:
+  name: busser
+
+suites:
+  - name: default
+```
+
+Then put your tests in a `bats` directory inside the suite:
+
+```text
+test/integration/default/bats/default.bats
+```
+
+`kitchen verify` installs Busser and this plugin on the instance and runs them.
+The directory name is what selects this plugin -- there is nothing else to
+configure.
+
+## When nothing runs
+
+If the suite files do not match what this plugin looks for, the run prints one
+line and **exits `0`**:
+
+```text
+-----> Running bats test suite
+```
+
+No tests ran, and nothing said so. Work through these in order:
+
+1. **Is the directory named `bats`?** That name alone selects this plugin.
+   `batss/`, `tests/` or anything else is not picked up.
+2. **Do the filenames match?** Every `*.bats` file in the directory is run
+   -- `smoke.sh` is *not* picked up.
+3. **Is the plugin installed?** `busser plugin list` shows what is available.
+4. **Is `BUSSER_ROOT` what you think?** `busser suite path` prints where suites
+   are actually being looked for.
+
 ## Contributing
 
 Bug reports and pull requests are welcome. See
