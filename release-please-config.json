@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-  "bootstrap-sha": "08783322568b4fc064856c2d374744e8ca588f32",
+  "bootstrap-sha": "d68705e017a260ede830b50e5f66fd37d9f6e58a",
   "packages": {
     ".": {
       "package-name": "busser-bats",
