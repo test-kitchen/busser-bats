@@ -1,8 +1,6 @@
 # Busser::RunnerPlugin::Bats
 
-[![Gem Version](https://badge.fury.io/rb/busser-bats.png)](http://badge.fury.io/rb/busser-bats)
-[![Build Status](https://travis-ci.org/test-kitchen/busser-bats.png?branch=master)](https://travis-ci.org/test-kitchen/busser-bats)
-[![Code Climate](https://codeclimate.com/github/test-kitchen/busser-bats.png)](https://codeclimate.com/github/test-kitchen/busser-bats)
+[![Gem Version](https://badge.fury.io/rb/busser-bats.svg)](http://badge.fury.io/rb/busser-bats)
 
 A Busser runner plugin for [Bats][bats_site]
 
@@ -12,7 +10,7 @@ This software project is no longer under active development as it has no active 
 
 ## Installation and Setup
 
-Until proper reference documentation is complete, the [Writing a Test](http://kitchen.ci/docs/getting-started/writing-test) section of the Test Kitchen's [Getting Started Guide](http://kitchen.ci/docs/getting-started/) gives a working example of creating a bats test.
+Until proper reference documentation is complete, the [Writing a Test](https://kitchen.ci/docs/writing-test) section of the Test Kitchen's [Getting Started Guide](https://kitchen.ci/docs/) gives a working example of creating a bats test.
 
 ## Usage
 
