@@ -26,10 +26,17 @@ require "busser/runner_plugin"
 #
 class Busser::RunnerPlugin::Bats < Busser::RunnerPlugin::Base
 
+  # Installs the vendored bats onto the machine under test. Runs once, when
+  # Busser installs this plugin.
+  #
+  # bats 0.4 shipped bin/bats as a symlink that the tarball did not preserve,
+  # so this used to recreate it by hand before running install.sh. bats-core
+  # ships bin/bats as a real file, and recreating the link would replace it
+  # with one pointing at libexec/bats, which does not exist in bats-core --
+  # its executables live in libexec/bats-core.
   postinstall do
     inside(Pathname.new(__FILE__).dirname.join("../../../vendor/bats")) do
-      FileUtils.ln_sf("../libexec/bats", "bin/bats")
-      run!(%{./install.sh #{vendor_path("bats")}})
+      run!(%{./install.sh #{Shellwords.escape(vendor_path("bats").to_s)}})
     end
   end
 

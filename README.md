@@ -10,6 +10,10 @@ installs that copy onto the machine under test during postinstall, and then runs
 it against the suite's `bats` directory — so the machine under test needs
 nothing beyond bash.
 
+The vendored copy is [bats-core](https://github.com/bats-core/bats-core), which
+is the maintained fork; `vendor/bats/VERSION.txt` records the exact release.
+`rake bats:vendor` refreshes it, and `BATS_VERSION` selects a different tag.
+
 ## Status
 
 This software project is no longer under active development as it has no active
