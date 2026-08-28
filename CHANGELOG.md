@@ -1,5 +1,16 @@
 # busser-bats Changelog
 
+## [0.6.0](https://github.com/test-kitchen/busser-bats/compare/v0.5.0...v0.6.0) (2026-08-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Ruby 3.1 and busser releases older than 0.9.0 are no longer supported.
+
+### Features
+
+* require Ruby 3.2 and busser 0.9, adopt release-please ([#44](https://github.com/test-kitchen/busser-bats/issues/44)) ([3aa285e](https://github.com/test-kitchen/busser-bats/commit/3aa285e63f0b2f0b79666525022308eb14eee1c3))
+
 ## [0.5.0](https://github.com/test-kitchen/busser-bats/compare/v0.4.0...v0.5.0) (2023-11-30)
 
 
