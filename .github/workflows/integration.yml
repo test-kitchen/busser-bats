@@ -41,7 +41,7 @@ jobs:
       # rather than the Busser root's -- so it skips installing busser and the
       # run dies on a path that was never created. Test Kitchen is not run from
       # inside a project's bundle in real use either.
-      - uses: ruby/setup-ruby@bec3f19a76460dbe12f60def7d1a77585f07516c  # v1.322.0
+      - uses: ruby/setup-ruby@a0102e0972be65f351c307e2d64b9314a57c8073  # v1.324.0
         with:
           ruby-version: ${{ matrix.ruby }}
 
